@@ -19,12 +19,12 @@ type TypeConverterPlugin_UUID struct {
 }
 
 func (t *TypeConverterPlugin_UUID) GetTypeConverter(tp *fdep.DepType) fproto_phpwrap.TypeConverter {
-	if tp.DepFile.FilePath == "github.com/RangelReale/fproto-wrap/uuid.proto" &&
+	if tp.DepFile.FilePath == "github.com/RangelReale/fproto-wrap-std/uuid.proto" &&
 		tp.DepFile.ProtoFile.PackageName == "fproto_wrap" &&
 		tp.Name == "UUID" {
 		return &TypeConverter_UUID{}
 	}
-	if tp.DepFile.FilePath == "github.com/RangelReale/fproto-wrap/uuid.proto" &&
+	if tp.DepFile.FilePath == "github.com/RangelReale/fproto-wrap-std/uuid.proto" &&
 		tp.DepFile.ProtoFile.PackageName == "fproto_wrap" &&
 		tp.Name == "NullUUID" {
 		return &TypeConverter_NullUUID{}
