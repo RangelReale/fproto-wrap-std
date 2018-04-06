@@ -99,7 +99,7 @@ func (t *TypeConverter_NullUUID) IsScalar() bool {
 
 func (t *TypeConverter_NullUUID) GenerateImport(g *fproto_phpwrap.GeneratorFile, varSrc string, varDest string, varError string) (generated bool, err error) {
 	g.P(varDest, " = null;")
-	g.P("if (", varSrc, "->getValue() != '') {")
+	g.P("if (", varSrc, "->getValid() && ", varSrc, "->getValue() != '') {")
 	g.In()
 	g.P(varDest, " = \\Ramsey\\Uuid\\Uuid::fromString(", varSrc, "->getValue());")
 	g.Out()
@@ -111,6 +111,7 @@ func (t *TypeConverter_NullUUID) GenerateImport(g *fproto_phpwrap.GeneratorFile,
 func (t *TypeConverter_NullUUID) GenerateExport(g *fproto_phpwrap.GeneratorFile, varSrc string, varDest string, varError string) (generated bool, err error) {
 	g.P(varDest, " = new \\Fproto_wrap\\NullUUID();")
 	g.P(varDest, "->setValue(", varSrc, "->toString());")
+	g.P(varDest, "->setValid(true);")
 
 	return true, nil
 }
