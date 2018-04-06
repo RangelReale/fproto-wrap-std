@@ -109,7 +109,7 @@ func (t *TypeConverter_NullUUID) GenerateImport(g *fproto_phpwrap.GeneratorFile,
 }
 
 func (t *TypeConverter_NullUUID) GenerateExport(g *fproto_phpwrap.GeneratorFile, varSrc string, varDest string, varError string) (generated bool, err error) {
-	g.P(varDest, " = new \\Fproto_wrap\\UUID();")
+	g.P(varDest, " = new \\Fproto_wrap\\NullUUID();")
 	g.P(varDest, "->setValue(", varSrc, "->toString());")
 
 	return true, nil
