@@ -38,7 +38,7 @@ func (t *TypeConverter_JSONObject) TCID() fproto_gowrap.TCID {
 	return TCID_JSONOBJECT
 }
 
-func (t *TypeConverter_JSONObject) TypeName(g *fproto_gowrap.GeneratorFile, tntype fproto_gowrap.TypeNameType) string {
+func (t *TypeConverter_JSONObject) TypeName(g *fproto_gowrap.GeneratorFile, tntype fproto_gowrap.TypeNameType, options uint32) string {
 	return "interface{}"
 }
 
@@ -86,7 +86,7 @@ func (t *TypeConverter_JSONObject) GenerateExport(g *fproto_gowrap.GeneratorFile
 	g.In()
 
 	g.P("var jtemp []byte")
-	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE))
+	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE, 0))
 
 	g.P("jtemp, err = ", alias, ".Marshal(", varSrc, ")")
 	g.P("if err != nil {")

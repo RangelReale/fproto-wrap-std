@@ -46,7 +46,7 @@ func (t *TypeConverter_UUID) TCID() fproto_gowrap.TCID {
 	return TCID_UUID
 }
 
-func (t *TypeConverter_UUID) TypeName(g *fproto_gowrap.GeneratorFile, tntype fproto_gowrap.TypeNameType) string {
+func (t *TypeConverter_UUID) TypeName(g *fproto_gowrap.GeneratorFile, tntype fproto_gowrap.TypeNameType, options uint32) string {
 	alias := g.DeclDep("github.com/RangelReale/go.uuid", "uuid")
 
 	switch tntype {
@@ -80,7 +80,7 @@ func (t *TypeConverter_UUID) GenerateExport(g *fproto_gowrap.GeneratorFile, varS
 	}
 	tsource := g.G().GetTypeSource(tp)
 
-	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE))
+	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE, 0))
 	g.P(varDest, ".Value = ", varSrc, ".String()")
 	return false, nil
 }
@@ -97,7 +97,7 @@ func (t *TypeConverter_NullUUID) TCID() fproto_gowrap.TCID {
 	return TCID_NULLUUID
 }
 
-func (t *TypeConverter_NullUUID) TypeName(g *fproto_gowrap.GeneratorFile, tntype fproto_gowrap.TypeNameType) string {
+func (t *TypeConverter_NullUUID) TypeName(g *fproto_gowrap.GeneratorFile, tntype fproto_gowrap.TypeNameType, options uint32) string {
 	alias := g.DeclDep("github.com/RangelReale/go.uuid", "uuid")
 
 	switch tntype {
@@ -142,7 +142,7 @@ func (t *TypeConverter_NullUUID) GenerateExport(g *fproto_gowrap.GeneratorFile, 
 	}
 	tsource := g.G().GetTypeSource(tp)
 
-	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE))
+	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE, 0))
 	g.P("if ", varSrc, ".Valid {")
 	g.In()
 	g.P(varDest, ".Value = ", varSrc, ".UUID.String()")
