@@ -42,7 +42,7 @@ func (t *TypeConverter_Time) TCID() fproto_phpwrap.TCID {
 	return TCID_TIME
 }
 
-func (t *TypeConverter_Time) TypeName(g *fproto_phpwrap.GeneratorFile, tntype fproto_phpwrap.TypeNameType) string {
+func (t *TypeConverter_Time) TypeName(g *fproto_phpwrap.GeneratorFile, tntype fproto_phpwrap.TypeNameType, options uint32) string {
 
 	switch tntype {
 	case fproto_phpwrap.TNT_NS_TYPENAME:

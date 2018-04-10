@@ -44,7 +44,7 @@ func (t *TypeConverter_UUID) TCID() fproto_phpwrap.TCID {
 	return TCID_UUID
 }
 
-func (t *TypeConverter_UUID) TypeName(g *fproto_phpwrap.GeneratorFile, tntype fproto_phpwrap.TypeNameType) string {
+func (t *TypeConverter_UUID) TypeName(g *fproto_phpwrap.GeneratorFile, tntype fproto_phpwrap.TypeNameType, options uint32) string {
 
 	switch tntype {
 	case fproto_phpwrap.TNT_NS_TYPENAME:
@@ -83,7 +83,7 @@ func (t *TypeConverter_NullUUID) TCID() fproto_phpwrap.TCID {
 	return TCID_UUID
 }
 
-func (t *TypeConverter_NullUUID) TypeName(g *fproto_phpwrap.GeneratorFile, tntype fproto_phpwrap.TypeNameType) string {
+func (t *TypeConverter_NullUUID) TypeName(g *fproto_phpwrap.GeneratorFile, tntype fproto_phpwrap.TypeNameType, options uint32) string {
 
 	switch tntype {
 	case fproto_phpwrap.TNT_NS_TYPENAME:
