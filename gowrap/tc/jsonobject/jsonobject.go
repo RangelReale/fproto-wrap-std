@@ -53,8 +53,8 @@ func (t *TypeConverter_JSONObject) GenerateImport(g *fproto_gowrap.GeneratorFile
 	g.In()
 
 	g.P("jtemp := make(map[string]interface{})")
-	g.P("err = ", alias, ".Unmarshal([]byte(", varSrc, ".Value), jtemp)")
-	g.P("if err != nil {")
+	g.P("err = ", alias, ".Unmarshal([]byte(", varSrc, ".Value), &jtemp)")
+	g.P("if err == nil {")
 	g.In()
 	g.P(varDest, " = jtemp")
 	g.Out()
@@ -89,7 +89,7 @@ func (t *TypeConverter_JSONObject) GenerateExport(g *fproto_gowrap.GeneratorFile
 	g.P(varDest, " = ", tsource.TypeName(g, fproto_gowrap.TNT_EMPTYVALUE, 0))
 
 	g.P("jtemp, err = ", alias, ".Marshal(", varSrc, ")")
-	g.P("if err != nil {")
+	g.P("if err == nil {")
 	g.In()
 	g.P(varDest, ".Value = string(jtemp)")
 	g.Out()
