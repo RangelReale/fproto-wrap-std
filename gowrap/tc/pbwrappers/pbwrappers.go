@@ -51,7 +51,7 @@ func (t *TypeConverter_PBWrappers) GenerateImport(g *fproto_gowrap.GeneratorFile
 	g.In()
 
 	g.P(varDest, ".Valid = true")
-	g.P(varDest, ".Value = ", varSrc, ".Value")
+	g.P(varDest, ".WValue = ", varSrc, ".Value")
 
 	g.Out()
 	g.P("}")
@@ -66,7 +66,7 @@ func (t *TypeConverter_PBWrappers) GenerateExport(g *fproto_gowrap.GeneratorFile
 	g.In()
 
 	g.P(varDest, " = &", pb_alias, ".", t.SourceTypeName, "{}")
-	g.P(varDest, ".Value = ", varSrc, ".Value")
+	g.P(varDest, ".Value = ", varSrc, ".WValue")
 
 	g.Out()
 	g.P("}")

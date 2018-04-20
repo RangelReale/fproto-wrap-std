@@ -1,46 +1,48 @@
 package pbwrappers_ptypes
 
+// field can't be named "Value" because of conflicts with the database/sql driver.Valuer interface
+
 type DoubleValue struct {
-	Valid bool
-	Value float64
+	Valid  bool
+	WValue float64
 }
 
 type FloatValue struct {
-	Valid bool
-	Value float32
+	Valid  bool
+	WValue float32
 }
 
 type Int64Value struct {
-	Valid bool
-	Value int64
+	Valid  bool
+	WValue int64
 }
 
 type UInt64Value struct {
-	Valid bool
-	Value uint64
+	Valid  bool
+	WValue uint64
 }
 
 type Int32Value struct {
-	Valid bool
-	Value int32
+	Valid  bool
+	WValue int32
 }
 
 type UInt32Value struct {
-	Valid bool
-	Value uint32
+	Valid  bool
+	WValue uint32
 }
 
 type BoolValue struct {
-	Valid bool
-	Value bool
+	Valid  bool
+	WValue bool
 }
 
 type StringValue struct {
-	Valid bool
-	Value string
+	Valid  bool
+	WValue string
 }
 
 type BytesValue struct {
-	Valid bool
-	Value []byte
+	Valid  bool
+	WValue []byte
 }
