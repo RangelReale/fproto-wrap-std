@@ -6,8 +6,8 @@ import (
 )
 
 const (
-	TCID_TIME     fproto_phpwrap.TCID = "de426778-4912-450e-b531-8e83f8056ce3"
-	TCID_NULLTIME fproto_phpwrap.TCID = "11ed386a-0cee-4590-9090-b03c0325e13a"
+	TCID_TIME fproto_phpwrap.TCID = "de426778-4912-450e-b531-8e83f8056ce3"
+	//TCID_NULLTIME fproto_phpwrap.TCID = "11ed386a-0cee-4590-9090-b03c0325e13a"
 )
 
 // Converts between google.protobuf.Timestamp and time.Time
